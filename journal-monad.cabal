@@ -23,6 +23,7 @@ library
     , bytestring
     , containers
     , text
+    , vector
 
   hs-source-dirs:     src
   default-language:   GHC2024
