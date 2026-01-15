@@ -34,7 +34,7 @@ data Entry = MkEntry
     deriving (Show, Eq)
 
 data Jurnal = MkJournal
-    { header :: Header
+    { header :: !Header
     , entry :: !(List Entry)
     }
     deriving (Show, Eq)
