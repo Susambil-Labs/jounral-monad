@@ -20,8 +20,8 @@ octets w =
     , fromIntegral w
     ]
 
-getFormat :: Get (BS.ByteString, Word32, Word64, Word64, Word64)
-getFormat = do
+getHeaders :: Get (BS.ByteString, Word32, Word64, Word64, Word64)
+getHeaders = do
     fLen <- getWord32be
     let r = BS.pack $ octets fLen
 
@@ -34,5 +34,5 @@ getFormat = do
 run :: IO ()
 run = do
     cn <- BL.readFile "demo.journal"
-    let dc = runGet getFormat cn
+    let dc = runGet getHeaders cn
     print dc
