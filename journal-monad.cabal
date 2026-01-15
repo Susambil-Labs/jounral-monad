@@ -1,0 +1,59 @@
+cabal-version:   3.0
+name:            journal-monad
+version:         0.1.0.0
+license:         BSD-3-Clause
+license-file:    LICENSE
+author:          lambdajon
+maintainer:      lambdajon42@gmail.com
+build-type:      Simple
+extra-doc-files: CHANGELOG.md
+
+common warnings
+  ghc-options: -Wall
+
+library
+  import:             warnings
+  exposed-modules:
+    Journal
+    MyLib
+
+  build-depends:
+    , base
+    , binary
+    , bytestring
+    , containers
+    , text
+
+  hs-source-dirs:     src
+  default-language:   GHC2024
+  default-extensions:
+    BlockArguments
+    DataKinds
+    DeriveAnyClass
+    DerivingStrategies
+    ImplicitParams
+    ImportQualifiedPost
+    LambdaCase
+    OverloadedRecordDot
+    OverloadedStrings
+    RecordWildCards
+
+executable journal-monad
+  import:           warnings
+  main-is:          Main.hs
+  build-depends:
+    , base
+    , journal-monad
+
+  hs-source-dirs:   app
+  default-language: GHC2024
+
+test-suite journal-monad-test
+  import:           warnings
+  default-language: GHC2024
+  type:             exitcode-stdio-1.0
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  build-depends:
+    , base
+    , journal-monad
